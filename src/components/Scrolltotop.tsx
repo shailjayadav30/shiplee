@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 
-const ScrollToTop = ({ darkMode }) => {
+interface ScrollToTopProps {
+  darkMode: boolean;
+}
+
+const ScrollToTop: React.FC<ScrollToTopProps> = ({ darkMode }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
@@ -24,7 +28,7 @@ const ScrollToTop = ({ darkMode }) => {
       <button
         onClick={scrollToTop}
         className={`
-          fixed bottom-2  right-10 w-12 h-12 flex items-center justify-center 
+          fixed bottom-2 right-10 w-12 h-12 flex items-center justify-center 
           ${darkMode ? 'bg-gray-800 text-white' : 'bg-black text-white'} 
           rounded-full hover:bg-opacity-80 transition-all duration-200
         `}
